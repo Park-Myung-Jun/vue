@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="Calculator"/>
+
+    <title>Calculator</title>
+
+   <script src="https://unpkg.com/vue"></script>
+    <style>
+        input {
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+	<div id="app" style='width: 100%;height: 100%;'>
+		year : <input v-model="year">&#160, month : <input v-model="month">&#160, day : <input v-model="day">
+        <h1>{{this.year}} / {{this.month}} / {{this.day}}</h1>
+        <table width="300px" height="300px">
+            <th v-for="i in 7" text-align="center" width="14%" height=30px>
+                
+            </th>
+			<tr v-for="j in 6" v-if="check(j)">
+				<td v-for="i in 7" v-bind:style="" text-align="center">
+                    {{ make(j, i) }}
+                </td>
+			</tr>
+		</table> 
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data: {
+                year: 0,
+                month: 0,
+                day: 0,
+            },
+            methods:{
+                make: function(j, i) {
+                    var base1 = new Date(parseInt(this.year), parseInt(this.month), 0);
+                    var base2 = new Date(parseInt(this.year), parseInt(this.month)-1, 1);
+                    var gLen = base1.getDate();
+                    var gDay = base2.getDay();
+                    var today = parseInt(this.day);
+                                        
+                    if( gDay <= (j-1)*7 + (i-1) && (j-1)*7 + (i-1) < gDay + gLen)
+                        return (j-1)*7 + i - gDay;
+                    else
+                        return "";
+                },
+                check: function(j) {
+                    var base1 = new Date(parseInt(this.year), parseInt(this.month), 0);
+                    var base2 = new Date(parseInt(this.year), parseInt(this.month)-1, 1);
+                    var gLen = base1.getDate();
+                    var gDay = base2.getDay();
+
+                    return (gLen + gDay + 6)/7>= j;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

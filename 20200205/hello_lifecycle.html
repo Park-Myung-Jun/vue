@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="app">
+            {{message}}
+        </div>
+    </body>
+    <script>
+        new Vue({
+            el:'#app', 
+            data: {
+                message:'Hello Vue.js!'
+            },
+            beforeCreate: function() {
+                console.log("beforeCreate");
+            },
+            created: function() {
+                console.log("created");
+            },
+            mounted: function() {
+                console.log("mounted");
+                this.message = 'Hello Vue!';
+            },
+            updated: function() {
+                console.log("updated");
+            }
+        });
+    </script>
+</html>

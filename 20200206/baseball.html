@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>    
+    <script src="https://unpkg.com/vue"></script>
+        <style>
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <select v-model="num1">
+                <option v-for="i in 10":value='i-1'>{{i-1}}</option>
+            </select>
+            <select v-model="num2">
+                <option v-for="i in 10":value='i-1'>{{i-1}}</option>
+            </select>
+            <select v-model="num3">
+                <option v-for="i in 10":value='i-1'>{{i-1}}</option>
+            </select>
+            <button v-on:click="input">Add</button><br/>
+            <ul>
+                <li v-for="item, index in nums" v-if="index">x : {{item.x}}, y : {{item.y}}, z : {{item.z}} ==> {{ item.ball }} ball, {{ item.strike }} strike</li>
+            </ul>
+            <img v-if="smile" :src="feelsgood"/><br/>
+            count : {{count}}
+            <p v-if="smile">Success!</p>
+        </div>
+        <script>
+            const app = new Vue({
+                el: "#app",
+                data: {
+                    initNum1:0, initNum2:0, initNum3: 0,
+                    num1 : 0, num2: 0, num3: 0,
+                    nums: [{x:-1, y:-1, z:-1, ball: -1, strike: 0},],
+                    smile:false,
+                    feelsgood:"feelsgood.png",
+                    count: 0
+                },
+                methods: {
+                    input: function() {
+                        var arr = [0,0,0,0,0,0,0,0,0,0];
+                        var tmp_ball = 0;
+                        arr[this.initNum1]++;
+                        arr[this.initNum2]++;
+                        arr[this.initNum3]++;
+
+                        if(arr[this.num1] > 0)
+                        {
+                            tmp_ball++;
+                            arr[this.num1]--;
+                        }
+                        if(arr[this.num2] > 0)
+                        {
+                            tmp_ball++;
+                            arr[this.num2]--;
+                        }
+                        if(arr[this.num3] > 0)
+                        {
+                            tmp_ball++;
+                            arr[this.num3]--;
+                        }
+
+                        var tmp_st = 0;
+                        if(this.initNum1 == this.num1)
+                            tmp_st++;
+                        if(this.initNum2 == this.num2)
+                            tmp_st++;
+                        if(this.initNum3 == this.num3)
+                            tmp_st++;
+
+                        this.strike = tmp_st;
+                        this.ball = tmp_ball - tmp_st;
+
+                        if(this.strike == 3)
+                            this.smile = true;
+
+                        this.count++;
+
+                        this.nums.push({x:this.num1, y:this.num2, z:this.num3, ball:this.ball, strike:this.strike});
+                        //console.log(this.initNum1 + " " + this.initNum2 + " " + this.initNum3);
+                    }
+                },
+                mounted: function() {
+                    this.initNum1 = Math.floor(Math.random() * 10);
+                    this.initNum2 = Math.floor(Math.random() * 10);
+                    this.initNum3 = Math.floor(Math.random() * 10);
+                    //console.log(this.initNum1 + " " + this.initNum2 + " " + this.initNum3);
+                }
+            })
+        </script>
+    </body>
+</html>

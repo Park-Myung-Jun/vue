@@ -1,0 +1,29 @@
+반응형 웹, MVVM - data,view,VM은 controller
+view에 초점이 맞춰짐
+
+Front end - UI, Vue.js(HTML/CSS/JavaScript)
+Back end - server, node.js, Django(python)
+DB - MySQL, MongoDB
+
+LAMP
+MEA(RV)N
+MEEN
+
+computed : 자동 계산, 캐쉬 이용
+methode : 자꾸 계산?
+
+v-bind : 양방향일때
+:(콜론)사용 : 단방향일때
+
+인자가 있으면 method로 구현해야 함
+
+.addEventListener(이름, 이벤트 핸들러, ..)
+
+이벤트 - 자식에게 전달됨, 이를 방지하고자 이벤트 수식어를 씀
+
+setInterval - 시간 마다 갱신
+setTimeout - 시간이 되면 끝
+
+retunr이 없으면 메소드
+
+<td is="mytagname"> ... </td>

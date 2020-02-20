@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="app" style="background-color: red; width:400px; height: 400px;">
+            <div @click="doLast">
+                <div style="background-color: blue; width:200px; height: 200px;" @click.self="doMiddle">
+                    <span @click="doThat">span element</span>
+                </div>
+            </div>
+        </div>
+        <script>
+            var vm = new Vue({
+                el: '#app',
+                methods: {
+                    doThat: function() {
+                        console.log("첫번째");
+                    },
+                    doMiddle: function() {
+                        console.log("두번째");
+                    },
+                    doLast: function() {
+                        console.log("세번째");
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>v-for object1</title>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <ul id="app" class="demo">
+        <!-- li v-for="value in object"> {{ value }} </li-->
+        <div v-for="(value, key, index) in object">{{index}}. {{key}} : {{value}}</div>
+    </ul>
+    <script>
+        new Vue({
+            el:'#app',
+            data: {
+                object: {
+                    firstName: 'John',
+                    lastName: 'Doe',
+                    age: 30
+                }
+            }
+        });
+    </script>
+</html>

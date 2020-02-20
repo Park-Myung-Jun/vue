@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue Template - select</title>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="app">
+            <input type="radio" v-model="picked" v-bind:value="a"> {{ a }} <br>
+            <input type="radio" v-model="picked" v-bind:value="b"> {{ b }} <br>
+            {{ message }}
+        </div>
+        <script>
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                    picked: 'true',
+                    a: '기우',
+                    b: '기정',
+                    message: ''
+                },
+                watch: {
+                    picked: function(newVal, oldVal) {
+                        this.message = (this.picked === this.a)?'기우':'기정';
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

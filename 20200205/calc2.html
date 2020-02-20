@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="Calculator"/>
+
+    <title>Calculator</title>
+
+   <script src="https://unpkg.com/vue"></script>
+    <style>
+		button {
+			border: 1px solid #333333;
+			background-color:#E4E4E4;
+			font-size: 18pt;
+			font-weight:bold;
+			color:#444444;
+			width: 100%;
+			height: 100%;
+		}
+    </style>
+</head>
+
+<body>
+	<div id="app" style='width: 100%;height: 100%;'>
+		<table border="4" cellpadding="1" bordercolor="#FFFFFF" bgcolor="#73B27B" cellspacing="2" width="100%" height="50px">
+			<tr><td>{{message}}</td></tr>
+		</table>
+		<table border="4" cellpadding="1" bordercolor="#FFFFFF" bgcolor="#73B27B" cellspacing="2" width="100%" height="82%">
+			<tr v-for="j in 4">
+				<td v-for="i in 4" text-align="center">
+                    <button v-on:click=cal(i-1+(j-1)*4)> {{ buttons[i-1+(j-1)*4] }}</button>
+                </td>
+			</tr>
+		</table> 
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data: {
+                message: '',
+                buttons: ['7', '8','9', '/', 
+                        '4','5','6','*',
+                        '1','2','3','-',
+                        '0','C','=','+'],
+            },
+            methods: {
+                cal: function(n) {
+                    switch(n) {
+                        default:
+                            this.message += this.buttons[n];
+                        break;
+                        case 13:
+                            this.message='';
+                            break;
+                        case 14:
+                            this.message = eval(this.message);
+                            break;
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

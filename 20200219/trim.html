@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue Template - select</title>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="app">
+            <span>message : </span> {{message}}!!! <br>
+            <input v-model.trim="message">
+        </div>
+        <script>
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                    message: 'Hello'
+                }
+            })
+        </script>
+    </body>
+</html>

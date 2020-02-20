@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue Template - select</title>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="app">
+            <span>message : </span> {{message}} <br>
+            <input type="text" v-model.lazy="message" placeholder="여기를 입력">
+        </div>
+        <script>
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                    message: 'World!'
+                }
+            })
+        </script>
+    </body>
+</html>

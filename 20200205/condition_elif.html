@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+    <head>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="app">
+            <p v-if="ismessage">{{ message }}</p>
+            <p v-else>{{ error }}</p>
+        </div>
+    </body>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                ismessage: true,
+                message: 'Vue 동작이 잘 됩니다.',
+                error: 'error'
+            }
+        });
+    </script>
+</html>

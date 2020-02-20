@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue.js Sample</title>
+    </head>
+    <body>
+        <!-- 파일 : ex1_vuescope
+        인스턴스 유효범위-->
+        <div id="hello">
+
+            {{message}}
+        </div>
+
+        <!--step2-->
+        <div id="world">
+            {{message}}
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script>
+            //step1
+            new Vue({
+                el:'#hello',
+                data: {
+                    message: 'Hello Vue.js!'
+                }
+            })
+
+            //step2
+            new Vue({
+                el:'#world',
+                data: {
+                    message: 'Vue.js World'
+                }
+            });
+        </script>
+    </body>
+</html>

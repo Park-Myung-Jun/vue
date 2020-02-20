@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Vue Template - Computed
+        </title>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="app">
+            <div :style="{color: activeColor, 'font-size':fontSize + 'px'}">
+                인라인 스타일 바인딩
+            </div>
+         </div>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    activeColor: 'red',
+                    fontSize: 30
+                }
+            });
+        </script>
+    </body>
+</html>

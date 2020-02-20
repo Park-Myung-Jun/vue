@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue Template - Watch</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <input v-model="message">
+            <p>{{printMessage}}</p>
+        </div>
+
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    message: 'Hello Vue.js!',
+                    printMessage: 'printMessage'
+                },
+                watch: {
+                    message: function (data) {
+                        this.printMessage = data;
+                        console.log("printMessage의 값이 바뀝니다 : ", this.printMessage);
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

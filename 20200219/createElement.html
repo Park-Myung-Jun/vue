@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue Template - select</title>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="app">
+        </div>
+        <script>
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                    count: 0
+                },
+                render(createElement) {
+                    return createElement({
+                        template: '<div>Hello World ' + this.count + '</div>'
+                    })
+                },
+                mounted() {
+                    setInterval(() => {
+                        this.count++;
+                    }, 1000)
+                }
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue Template - select</title>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="app">
+            <select v-model="selected" multiple>
+                <option>기택</option>
+                <option>기우</option>
+                <option>기정</option>
+            </select>
+            <span>{{message}}</span>
+        </div>
+        <script>
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                    selected: [],
+                    message: ''
+                },
+                watch: {
+                    selected: function(newVal, oldVal) {
+                        this.message = newVal.join(', ');
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

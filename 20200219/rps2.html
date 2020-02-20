@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue Template - Watch</title>
+        <script src="https://unpkg.com/vue"></script>
+        <style>
+            #rsp_com, #rsp_user, #result {
+                display: inline;
+            }
+            #rsp_com {
+                float: right;
+                vertical-align: middle;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <div id="rsp_user">
+                <input type="radio" id="rock" value="0" v-model="rsp">
+                <label for="rock"><img src="rock.png"></label>
+                <input type="radio" id="scissors" value="1" v-model="rsp">
+                <label for="scissors"><img src="scissors.png"></label>
+                <input type="radio" id="paper" value="2" v-model="rsp">
+                <label for="paper"><img src="paper.png"></label>
+            </div>
+            <div id="rsp_com">
+                <img :src="diceFace"/>
+            </div>
+            <br>
+            <div id="result">
+                <img :src="pepe"/>
+            </div>
+        </div>
+        <script>
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                    isWin: -1,
+                    rsp: 0,
+                    com: -1,
+                    picked: '',
+                    dicefaces:[
+                        'rock.png',
+                        'scissors.png',
+                        'paper.png',
+                    ]
+                },
+                methods: {
+
+                },
+                computed: {
+                    diceFace: function() {
+                        return this.dicefaces[this.com];
+                    },
+                    pepe: function() {
+                        if(this.isWin == 0)
+                            return "feelsbad.jpg";
+                        else if(this.isWin == 1)
+                            return "feelsbad.jpg";
+                        else if(this.isWin == 2)
+                            return "feelsgood.png";
+                    }
+                },
+                watch: {
+                    rsp: function() {
+                        this.com = Math.floor(Math.random() * 3);
+                        if(this.com == parseInt(this.rsp))
+                            this.isWin = 0;
+                        
+                        if(this.com == 0 && parseInt(this.rsp) == 1 || this.com == 1 && parseInt(this.rsp) == 2 || this.com == 2 && parseInt(this.rsp) == 0)
+                            this.isWin = 1;
+                        
+                        if(this.com == 1 && parseInt(this.rsp) == 0 || this.com == 2 && parseInt(this.rsp) == 1 || this.com == 0 && parseInt(this.rsp) == 2)
+                            this.isWin = 2;
+                    }
+                }
+            })
+            
+        </script>
+    </body>
+</html>
+<!-- http://valentis.pe.kr/rps.html -->

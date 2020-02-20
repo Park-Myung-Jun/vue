@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>v-for object1</title>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <div id="app">
+        <ul>
+            <li v-for="value in array">{{value}}</li>
+        </ul>
+        <button @click="filter">Filter</button>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data: {
+                array: [1,2,3,4]
+            },
+            methods: {
+                filter() {
+                    this.array = this.array.filter(x => x > 1);
+                }
+            }
+        });
+    </script>
+</html>

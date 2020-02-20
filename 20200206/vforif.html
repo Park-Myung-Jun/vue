@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>listfileter</title>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <div id="app">
+        <ul>
+            <li v-for="number in numbers" v-if="number%2 === 0">{{number}}</li>
+        </ul>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data: {
+                numbers: [1,2,3,4]
+            }
+        });
+    </script>
+</html>

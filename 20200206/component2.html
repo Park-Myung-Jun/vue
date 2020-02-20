@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="components-demo">
+            <button-counter v-bind:num='count'></button-counter>
+        </div>
+        <script>
+            Vue.component('button-counter', {
+                props: ['num'],
+                template: '<button v-on:click="num++">You clicked me {{ num }} times.</button>'
+            });
+            new Vue({ el: '#components-demo',
+                data: {
+                    count = 0
+                }
+            });
+        </script>
+    </body>
+</html>

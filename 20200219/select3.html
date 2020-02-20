@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue Template - select</title>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="app">
+            <select v-model="selected" multiple>
+                <option v-for="option in options" v-bind:value="option.value">{{option.text}}</option>
+            </select>
+            <span>{{selected}}</span>
+        </div>
+        <script>
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                    selected: ['기정'],
+                    options: [
+                        {text:'기택',value:'기택'},
+                        {text:'기우',value:'기우'},
+                        {text:'기정',value:'기정'},
+                    ]
+                }
+            })
+        </script>
+    </body>
+</html>

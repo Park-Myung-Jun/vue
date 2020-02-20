@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+    <head>
+        <title>Vue Template - Computed</title>
+        <script src="https://unpkg.com/vue"></script>
+        <!--script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script-->
+    </head>
+    <body>
+        <div id="app">
+            <input v-model="num1">&nbsp
+            <select name="Operator" v-model="op">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">x</option>
+                <option value="/">/</option>
+            </select>&nbsp
+            <input v-model="num2">
+            &#160&#160=&nbsp&nbsp {{ calcurate }}
+        </div>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    num1: '0',
+                    num2: '0',
+                    op: '+',
+                    result: '0'
+                },
+                computed: {
+                    calcurate: function() {
+                        this.result = eval(this.num1 + this.op + this.num2);
+                        console.log(this.result);
+                        return this.result;
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

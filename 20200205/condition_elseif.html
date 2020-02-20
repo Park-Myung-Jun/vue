@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+    <head>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="app">
+            <div v-if="kind === 'system'">시스템: {{ message }}</div>
+            <div v-else-if="kind === 'SMS'">문자: {{ message }}</div>
+            <div v-else-if="kind === 'error'">Error: {{ message }}</div>
+            <div v-else>{{ message }}</div>
+        </div>
+    </body>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                kind: 'system',
+                message: 'Vue 동작이 잘 됩니다.',
+            }
+        });
+    </script>
+</html>

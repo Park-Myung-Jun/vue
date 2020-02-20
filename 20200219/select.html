@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue Template - select</title>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="app">
+            <select v-model="selected">
+                <option disabled value="">당신의 선택은</option>
+                <option>기택</option>
+                <option>기우</option>
+                <option>기정</option>
+            </select>
+            <input type="text" v-model="selected">
+        </div>
+        <script>
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                    selected: ''
+                }
+            })
+        </script>
+    </body>
+</html>

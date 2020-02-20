@@ -1,0 +1,69 @@
+LAMP : Linux, apache, mySQL, PHP or Python
+리눅스 위 ((MySQL - DB)M <-> (Apache 위 PHP - 웹서버)C) <-> (HTML - 웹 브라우져)V
+LAC - Docker
+MEAN(몽고DB, Express.js, 앵귤러 or React(이제는 앵귤려보다 더 씀) or Vue.js, Node.js)
+PCB - 회로, BSP - 리눅스, Middle - 미들웨어, App - 어플
+리눅스 커널 - 제대로 파는데 5년, 보는데 2년, 훑는데 6개월
+
+몽고DB 특징 - NoSQL, 입출력을 JSON형태로 함
+Vue의 경우 html에서 일부분만 바꾸면 됨, jade처럼 전부를 바꾸지 않음
+가볍고 속도가 빠름, view에만 초점
+
+MVVM패턴 - Model View View Model,  Templete과 같음, 
+데이터 연결에 사용, 양방향 제공, MV에 최적화
+
+Vue는 ECMAScript 5 기능 사용 - 넷스케이프네비게이터가 만듬
+웹브라우저 벤더마다 기능을 만듬, 호환성이 없어짐, 표준적으로 가는 것이 ECMA
+json 형태 "key":"value", ...
+
+리눅스나 파이썬은 라이브러리 링킹을 해야함
+
+jsfiddle과 jsbin이 있는데 jsbin을 더 추천
+
+var의 경우는 뒤의 형태에 따라 type이 정해짐(객체, int, string 등)
+
+el : element의 줄임말, selector를 표시
+
+id별로 vue 객체를 따로 만들어줘야함
+
+i4004
+i8008
+i8080
+8086
+8088
+80186
+80286
+80386
+
+beforecreate - 이벤트 같은 동적인 것을 두면 안됨, 한번 두면 접근 불가하기 때문
+create - 속성등 만들어진 것이 사용 가능, 부모 자식의 순서
+mount - 자식 부모의 순서
+....
+
+훅을 이용해 어떻게 처리할지를 고민하면 됨
+
+템플릿 - 무언가를 담는 틀
+
+반응적 - 데이터 변경시 이를 참고하는 뷰도 따라 바뀌는 것
+watcher라는 것이 항상 감시를 하고 있음
+
+표기법 : 카멜, 파스칼(카멜 + 첫단어 대문자), 스네이크, 케밥, 헝가리언(각 타입을 변수에 붙임)
+
+자식 -> 부모 : event, 부모->자식 : props
+
+v : 디렉티브, 가 붙은 것을 사용
+
+표현 식 안에 자바 스크립트 사용 가능
+
+computed : memoization을 하는 것
+
+&#숫자 : html에서 유니코드를 뜻함
+
+v-bind : 객체를 안보이게만 함, 메모리 차지
+v-if : 메모리도 차지 않게 없애버림 객체를
+
+알고리즘의 끝판왕 : the art of computer programming
+
+월의 총일수
+var endD = new Date(date-1);
+var endDate = endD.getDate();

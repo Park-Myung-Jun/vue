@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue Template - select</title>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="app">
+            <input type="checkbox" v-model="toggle" true-vaule="yes" false-value="no">
+            {{ message }}
+        </div>
+        <script>
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                    toggle: 'yes',
+                    message: 'true'
+                },
+                watch: {
+                    toggle: function(newVal, oldVal) {
+                        this.message = (this.toggle === 'yes')?'true':'false';
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

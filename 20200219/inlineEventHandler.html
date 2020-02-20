@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue Template - Watch</title>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="app">
+            <button v-on:click="warn('아직 서밋이 안됩니다',$event)">Submit</button>
+        </div>
+    </body>
+    <script>
+        const v = new Vue({
+            el: '#app',
+            methods: {
+                warn: function(message, event) {
+                    if(event)
+                        event.preventDefault();
+                    alert(message);
+                }
+            }
+        });
+    </script>
+</html>
