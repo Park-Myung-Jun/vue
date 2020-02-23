@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="Calculator"/>
+
+    <title>Calculator</title>
+
+    <script src="https://unpkg.com/vue"></script>
+    <style>
+        input {
+            width: 50px;
+        }
+        .list {
+            width: 336px;
+            padding: 0;
+            border: 1px solid #000000;
+        }
+        .item {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin: 4px;
+            width: 40px; height: 40px;
+            color: white;
+            background-color: #555555;
+        }
+        .fade-enter-active, .fade-leave-active, .v-move {
+            transition: opacity 1s, transform 1s;
+        }
+        .v-leave-active {
+            position: absolute;
+        }
+        .v-enter {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        .v-leave-to {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+    </style>
+</head>
+<body>
+	<div id="app" style='width: 100%;height: 100%;'>
+        year : <input v-model="year">&#160, month : 
+        <select v-model="month">
+            <option v-for="i in 12">{{i}}</option>
+        </select>
+        <transition-group tag="ul" class="list">
+            <li v-for="(item, index) in calc"
+                v-bind:style="st(item)"
+                :data-index="index"
+                :key="item"
+                class = "item">{{ item }}</li>
+        </transition-group>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data: {
+                year: 0,
+                month: 0,
+                list: [],
+                weeks: ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],
+            },
+            computed: {
+                calc() {
+                    var base1 = new Date(parseInt(this.year), parseInt(this.month), 0);
+                    var base2 = new Date(parseInt(this.year), parseInt(this.month)-1, 1);
+                    var gLen = base1.getDate();
+                    var gDay = base2.getDay();
+                    this.list = [];
+                    for(a in this.weeks)
+                        this.list.push(this.weeks[a]);
+                    for(var i=1;i<=gDay;i++)
+                        this.list.push(i-gDay);
+                    for(var i=1;i<=gLen;i++)
+                        this.list.push(i);
+                    return this.list;
+                }
+            },
+            methods: {
+                st(item) {
+                    if(item <= 0)
+                        return "visibility: hidden"
+                }
+            }
+        })
+        
+    </script>
+</body>
+
+</html>

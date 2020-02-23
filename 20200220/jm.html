@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>calc</title>
+<script src="https://unpkg.com/vue"></script>
+<style>
+button {
+border: 1px solid #333333;
+background-color:#E4E4E4;
+font-size: 18pt;
+font-weight:bold;
+color:#444444;
+width: 100%;
+height:100%;
+}
+</style>
+</head>
+<body>
+
+<div id = 'app'>
+<input type = "text" v-model = "year"/>
+<input type = "text" v-model = "month"/>
+
+<table style="font-size:180%" border='1'>
+
+<tr><td>일</td><td>월</td><td>화</td><td>수</td><td>목</td><td>금</td><td>토</td></tr>
+<tr v-for = "j in 6">
+<!--td> is="my-component" v-for = "i in 7" v-bind:date="nday(i, j)" v-bind:temperature='temp()' v-bind:isshow="show"></td-->
+    <td is="my-component" v-for = "i in 7" v-bind:date="nday(i, j)" v-bind:temperature="temp()"></td>
+</tr>
+</table>
+</div>
+
+
+<script>
+Vue.component('my-component',{
+template : '<td><p>{{ date }}</p><p>{{temperature}}도</p><img :src = "aaa" width=50px; height=50px;></span></td>',
+props : ['date', 'isshow','temperature'],
+data : function(){
+return { weather:[ "sunny.png", "cloudy.png", "rainy.png"] }
+
+},
+computed:{
+aaa : function(){
+return this.weather[Math.floor(Math.random() * 3)]
+}
+}
+});
+
+new Vue({
+el: '#app',
+data:{
+count : 0,
+year : '2020',
+month : '3',
+day : '0',
+show : true,
+id : [ "sunny.png", "cloudy.png", "rainy.png"],
+imgsrc : ''
+},
+methods:{
+nday:function(i, j){
+num = Math.floor(Math.random() * 3) ;
+this.imgsrc = this.id[num];
+var today = new Date(this.year, this.month-1, 1);
+var maxday = new Date(this.year, this.month, 0);
+var n = (i-1) + (j-1) * 7 - today.getDay() + 1;
+if(n <=0) {
+this.show = false ;
+return '';}
+else if(n > maxday.getDate()) {
+this.show = false;
+return '';}
+this.show = true;
+return n;
+},
+temp:function(){
+x = Math.floor(Math.random() * 13) ;
+return x;
+}
+}
+})
+</script>
+</body>
+</html>
